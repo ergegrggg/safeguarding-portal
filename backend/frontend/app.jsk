@@ -1,0 +1,11 @@
+import React from "react";
+import BlockPage from "./BlockPage.jsx";
+
+export default function App() {
+  return (
+    <div>
+      <h2 style={{padding: "10px"}}>Safeguarding Appliance</h2>
+      <BlockPage />
+    </div>
+  );
+}
