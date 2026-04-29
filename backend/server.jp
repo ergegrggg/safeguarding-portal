@@ -1,0 +1,29 @@
+import express from "express";
+import cors from "cors";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+let alerts = [];
+
+/* SIMULATE BLOCK EVENT */
+app.get("/reports", (req, res) => {
+  res.json(alerts);
+});
+
+/* ADD BLOCK EVENT */
+app.post("/block", (req, res) => {
+  alerts.push({
+    user: req.body.user,
+    device: req.body.device,
+    url: req.body.url,
+    category: req.body.category,
+    location: "Everywhere",
+    time: new Date().toUTCString()
+  });
+
+  res.send("logged");
+});
+
+app.listen(4000, () => console.log("API running"));
